@@ -1,13 +1,16 @@
 ---
 import { Spa } from "astro-spa";
-import BaseHead from "./BaseHead.astro";
+import { AstroSeo } from "@astrolib/seo";
 import Header from "./Header.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={"Feernandooff"} description={"Fernando's site"} />
+    <AstroSeo
+      title="Simple Usage Example"
+      description="A short description goes here."
+    />
   </head>
   <body>
     <Header title={"Feernandooff - portfolio"} />
