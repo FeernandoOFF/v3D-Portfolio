@@ -1,6 +1,10 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "paths": {
+      "components/*": ["./src/components/*"]
+    }
   }
 }
