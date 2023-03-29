@@ -1,25 +1,28 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header>
-	<h2>
-		{SITE_TITLE}
-	</h2>
-	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
-		<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
-	</nav>
-</header>
+<div>
+  <header
+    class="hidden md:block w-full max-w-2xl mx-auto c-glass rounded-[26px] py-3 px-20 fixed top-7 left-[50%] right-[50%] translate-x-[-50%]">
+    <nav class="text-sm flex justify-between mx-auto items-center">
+      <HeaderLink href={"/"}>Home</HeaderLink>
+      <HeaderLink href={"/about"}>About</HeaderLink>
+      <HeaderLink href={"/blog"}>Blog</HeaderLink>
+      <HeaderLink href={"/portfolio"}>Portfolio</HeaderLink>
+      <HeaderLink href={"/blog"}>Garden</HeaderLink>
+      <HeaderLink href={"/snippets"}>Snippets</HeaderLink>
+    </nav>
+  </header>
+  <div
+    class="block md:hidden w-10 h-10 rounded-full bg-gray-200 fixed top-7 right-7">
+  </div>
+</div>
+
 <style>
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
+  .c-glass {
+    background-color: rgba(87, 87, 87, 0.537);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
 </style>

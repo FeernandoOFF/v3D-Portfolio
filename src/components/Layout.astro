@@ -5,17 +5,32 @@ import Header from "./Header.astro";
 ---
 
 <!DOCTYPE html>
+<!-- TODO TRANSLATE -->
 <html lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO -->
     <AstroSeo
       title="Simple Usage Example"
       description="A short description goes here."
     />
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <Header title={"Feernandooff - portfolio"} />
-    <Spa />
+    <main class="container mx-auto">
+      <Header />
+      <Spa />
 
-    <slot />
+      <slot />
+    </main>
   </body>
 </html>

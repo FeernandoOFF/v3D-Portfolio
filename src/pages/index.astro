@@ -1,9 +1,40 @@
 ---
+import CopyMail from "../components/CopyMail.svelte";
 import Layout from "../components/Layout.astro";
 import Scene from "../components/svelte/Scene.svelte";
 ---
 
 <Layout>
-  <h1 class="text-red-300">Hello world</h1>
-  <Scene client:load />
+  <section class="hero min-h-[90vh]">
+    <div
+      class="hero-content flex-col lg:flex-row w-full justify-between max-w-6xl">
+      <div class="w-full">
+        <h1 class="font-serif text-xl md:text-6xl">I'm an ideas developer</h1>
+        <h1
+          class="font-serif text-xl md:text-4xl mt-2 mb-8"
+          style="-webkit-text-stroke: 1px; -webkit-text-fill-color: transparent;">
+          21th Century Creator
+        </h1>
+        <p class="font-sans mb-8">
+          Lorem ipsum dolor sit amet consectetur. Quam purus dolor placerat in
+          sed. Dignissim mi eu tristique vitae libero iaculis cursus elementum.
+          Ullamcorper semper congue.
+        </p>
+        <CopyMail />
+      </div>
+      <figure class="w-2/5">
+        <img
+          src="/assets/gem.png"
+          alt="Purple background gem"
+          class="w-full max-w-sm ml-auto"
+        />
+      </figure>
+    </div>
+  </section>
+  <section class="min-h-screen grid place-items-center">
+    <Scene client:visible />
+  </section>
+  <section class="min-h-screen">
+    <h2>Services</h2>
+  </section>
 </Layout>
