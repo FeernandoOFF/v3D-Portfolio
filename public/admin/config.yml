@@ -37,4 +37,4 @@ collections:
     fields:
       - { label: "Name", name: "Name", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Snippet", name: "Snippet", widget: "Code" }
+      - { label: "Snippet", name: "Snippet", widget: "code" }
