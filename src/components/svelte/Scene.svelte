@@ -1,14 +1,43 @@
 <script lang="ts">
-  import { Canvas, InteractiveObject, OrbitControls, T } from "@threlte/core";
-
-  import { Grid, Text } from "@threlte/extras";
+  // svelte
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
   import { spring } from "svelte/motion";
+  import { onMount } from "svelte";
+
+  // GSAP
+  import { gsap } from "gsap";
+  // Threejs
+  import { Canvas, InteractiveObject, OrbitControls, T } from "@threlte/core";
+  import { Grid, Text } from "@threlte/extras";
   import { degToRad } from "three/src/math/MathUtils";
 
+  // Code
+
   const scale = spring(1);
+  let cube: any;
+
+  $: {
+    console.log(cube);
+    if (cube) {
+      gsap.to(cube.scale, {
+        x: 3,
+        scrollTrigger: {
+          trigger: "#scene",
+          scrub: true,
+          markers: true,
+          start: "top 30%",
+          // end: "400%",
+          pin: true,
+        },
+      });
+    }
+  }
+  onMount(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  });
 </script>
 
-<div>
+<div id="scene">
   <Canvas>
     <T.PerspectiveCamera makeDefault position={[0, 0, 30]} fov={24}>
       <OrbitControls
@@ -24,7 +53,7 @@
 
     <!-- Cube -->
     <T.Group scale={$scale}>
-      <T.Mesh position={[-3, 0.5, 0]} castShadow let:ref>
+      <T.Mesh position={[-3, 0.5, 0]} castShadow let:ref bind:ref={cube}>
         <InteractiveObject
           object={ref}
           interactive
@@ -36,6 +65,11 @@
         <T.MeshStandardMaterial color="#333333" />
       </T.Mesh>
     </T.Group>
+
+    <T.Mesh position={[4, 0.5, 0]} castShadow>
+      <T.BoxGeometry />
+      <T.MeshStandardMaterial color="#333333" />
+    </T.Mesh>
 
     <!-- Text -->
     <Text

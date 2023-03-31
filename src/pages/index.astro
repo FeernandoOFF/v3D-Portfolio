@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon";
 import CopyMail from "../components/CopyMail.svelte";
 import Layout from "../components/Layout.astro";
 import Scene from "../components/svelte/Scene.svelte";
@@ -20,7 +21,9 @@ import Scene from "../components/svelte/Scene.svelte";
           sed. Dignissim mi eu tristique vitae libero iaculis cursus elementum.
           Ullamcorper semper congue.
         </p>
-        <CopyMail />
+        <CopyMail>
+          <Icon name="mdi:email-multiple-outline" />
+        </CopyMail>
       </div>
       <figure class="w-2/5">
         <img
@@ -31,10 +34,13 @@ import Scene from "../components/svelte/Scene.svelte";
       </figure>
     </div>
   </section>
-  <section class="min-h-screen grid place-items-center">
+  <section class="21-century-creator min-h-screen grid place-items-center">
     <Scene client:visible />
   </section>
-  <section class="min-h-screen">
+  <section class="services min-h-screen">
     <h2>Services</h2>
+  </section>
+  <section class="services min-h-screen">
+    <h2>Testimonials</h2>
   </section>
 </Layout>
