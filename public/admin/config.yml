@@ -5,9 +5,14 @@ backend:
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
+i18n:
+  structure: multiple_folders
+  locales: [en, es]
+
 collections:
   - name: "blog"
     label: "Blog"
+    i18n: true
     folder: "src/content/blog"
     create: true
     delete: true
@@ -24,3 +29,12 @@ collections:
       - { label: "Featured Image", name: "heroImage", widget: "image" }
       - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "snippets"
+    label: "Snippets"
+    folder: "src/content/snippets"
+    create: true
+    delete: true
+    fields:
+      - { label: "Name", name: "Name", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Snippet", name: "Snippet", widget: "Code" }
