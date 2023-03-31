@@ -3,6 +3,7 @@ import { Icon } from "astro-icon";
 import CopyMail from "../components/CopyMail.svelte";
 import Layout from "../components/Layout.astro";
 import Scene from "../components/svelte/Scene.svelte";
+import ServicesScreen from "../components/ServicesScreen.svelte";
 ---
 
 <Layout>
@@ -10,12 +11,12 @@ import Scene from "../components/svelte/Scene.svelte";
     <div
       class="hero-content flex-col lg:flex-row w-full justify-between max-w-6xl">
       <div class="w-full">
-        <h1 class="font-serif text-xl md:text-6xl">I'm an ideas developer</h1>
-        <h1
+        <h2 class="font-serif text-xl md:text-6xl">I'm an ideas developer</h2>
+        <h2
           class="font-serif text-xl md:text-4xl mt-2 mb-8"
           style="-webkit-text-stroke: 1px; -webkit-text-fill-color: transparent;">
           21th Century Creator
-        </h1>
+        </h2>
         <p class="font-sans mb-8">
           Lorem ipsum dolor sit amet consectetur. Quam purus dolor placerat in
           sed. Dignissim mi eu tristique vitae libero iaculis cursus elementum.
@@ -38,7 +39,7 @@ import Scene from "../components/svelte/Scene.svelte";
     <Scene client:visible />
   </section>
   <section class="services min-h-screen">
-    <h2>Services</h2>
+    <ServicesScreen />
   </section>
   <section class="services min-h-screen">
     <h2>Testimonials</h2>
