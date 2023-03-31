@@ -1,0 +1,28 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../components/Layout.astro";
+
+export async function getStaticPaths() {
+  const snippets = await getCollection("snippets");
+
+  return snippets.map((snippet) => ({
+    params: { slug: snippet.slug },
+    props: snippet,
+  }));
+}
+type Props = CollectionEntry<"snippets">;
+
+const snippet = Astro.props;
+const { Content } = await snippet.render();
+---
+
+<Layout>
+  <div class="prose">
+    <h1>{snippet.data.Name}</h1>
+    <p>{snippet.data.description}</p>
+    <code> <pre>
+    {snippet.data.Snippet.code}
+      </pre></code>
+    <Content />
+  </div>
+</Layout>

@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../components/Layout.astro";
+
+const snippets = await getCollection("snippets");
+---
+
+<Layout>
+  <h1>Snippets</h1>
+  {
+    snippets.map((snippet) => (
+      <div>
+        <a href={`/snippets/${snippet.slug}`}>
+          <p>{snippet.data.Name}</p>
+        </a>
+      </div>
+    ))
+  }
+</Layout>
