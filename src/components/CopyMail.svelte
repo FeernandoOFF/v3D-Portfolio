@@ -1,5 +1,9 @@
-<script>
-  let x = 1;
+<script lang="ts">
+  import { copy, type CopyDetail } from "@svelte-put/copy";
+  let copied = "";
+  function handleCopied(e: CustomEvent<CopyDetail>) {
+    copied = e.detail.text;
+  }
 </script>
 
 <div
@@ -9,5 +13,7 @@
     <slot />
   </div>
 
-  <p>me@feernandooff.com</p>
+  <button type="button" use:copy on:copied={handleCopied}
+    >me@feernandooff.com</button
+  >
 </div>

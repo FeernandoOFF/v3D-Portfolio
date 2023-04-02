@@ -14,6 +14,7 @@
   // Code
 
   const scale = spring(1);
+  const xPos = spring(1);
   let cube: any;
 
   $: {
@@ -28,6 +29,9 @@
           start: "top 30%",
           // end: "400%",
           pin: true,
+          onUpdate: (self) => {
+            $xPos = +self.progress?.toFixed(3) * 3;
+          },
         },
       });
     }
@@ -51,6 +55,10 @@
     <T.DirectionalLight castShadow position={[3, 10, 10]} intensity={0.5} />
     <T.AmbientLight intensity={0.2} />
 
+    <T.Mesh position={[3, 0.5, 0]} castShadow>
+      <T.BoxGeometry />
+      <T.MeshStandardMaterial color="#333333" />
+    </T.Mesh>
     <!-- Cube -->
     <T.Group scale={$scale}>
       <T.Mesh position={[-3, 0.5, 0]} castShadow let:ref bind:ref={cube}>
@@ -75,7 +83,7 @@
     <Text
       text={`Hey! this is in 
 development :)
-Welcome`}
+Welcome ${$xPos} `}
       fontSize={1}
       visible={true}
       position={{ y: 3, x: 0, z: 0 }}

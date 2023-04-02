@@ -2,6 +2,8 @@
 import { Spa } from "astro-spa";
 import { AstroSeo } from "@astrolib/seo";
 import Header from "./Header.astro";
+import Transition from "./Transition.svelte";
+import SearchBar from "./SearchBar.svelte";
 ---
 
 <!DOCTYPE html>
@@ -26,13 +28,17 @@ import Header from "./Header.astro";
     />
   </head>
   <body>
+    <Transition client:load />
+
     <main class="container mx-auto">
       <Header />
-      <Spa />
+      <Spa defaultAnimation={false} />
 
       <div class="mt-28">
         <slot />
       </div>
+
+      <SearchBar client:visible />
     </main>
   </body>
 </html>
