@@ -1,0 +1,11 @@
+Model Information:
+* title:	Gemstone
+* source:	https://sketchfab.com/3d-models/gemstone-216c3f967e0f4895a9faf6fec328024d
+* author:	glorysun (https://sketchfab.com/glorysun)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Gemstone" (https://sketchfab.com/3d-models/gemstone-216c3f967e0f4895a9faf6fec328024d) by glorysun (https://sketchfab.com/glorysun) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

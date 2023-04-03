@@ -1,39 +1,63 @@
 <script lang="ts">
   // svelte
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  import { spring } from "svelte/motion";
+  import { type Spring, spring } from "svelte/motion";
   import { onMount } from "svelte";
 
   // GSAP
   import { gsap } from "gsap";
   // Threejs
-  import { Canvas, InteractiveObject, OrbitControls, T } from "@threlte/core";
-  import { Grid, Text } from "@threlte/extras";
+  import {
+    Canvas,
+    InteractiveObject,
+    OrbitControls,
+    type Position,
+    T,
+  } from "@threlte/core";
+  import { GLTF, Grid, Text } from "@threlte/extras";
   import { degToRad } from "three/src/math/MathUtils";
 
-  // Code
+  // 3D Bindings
 
-  const scale = spring(1);
   const xPos = spring(1);
   let cube: any;
+  let camera: any;
+  let mainLight: any;
+  let target: Position = { x: 0 };
+  let autoRotate = true;
 
   $: {
-    console.log(cube);
     if (cube) {
-      gsap.to(cube.scale, {
-        x: 3,
-        scrollTrigger: {
-          trigger: "#scene",
-          scrub: true,
-          markers: true,
-          start: "top 30%",
-          // end: "400%",
-          pin: true,
-          onUpdate: (self) => {
-            $xPos = +self.progress?.toFixed(3) * 3;
+      // Scene Timeline
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#scene",
+            scrub: true,
+            markers: true,
+            start: "top 30%",
+            end: "200%",
+            pin: true,
+            onUpdate: (self) => {
+              $xPos = +self.progress?.toFixed(3) * 3;
+            },
           },
-        },
-      });
+        })
+        .to(mainLight.position, {
+          x: -3,
+          y: -2,
+          z: 3,
+          duration: 0.5,
+        })
+        .to(camera.position, {
+          x: 0,
+          z: 20,
+        })
+        .to(camera.lookAt, {
+          x: 0,
+          y: 0,
+          z: 0,
+        });
     }
   }
   onMount(() => {
@@ -43,38 +67,28 @@
 
 <div id="scene">
   <Canvas>
-    <T.PerspectiveCamera makeDefault position={[0, 0, 30]} fov={24}>
-      <OrbitControls
-        maxPolarAngle={degToRad(80)}
-        enableZoom={false}
-        target={{ y: 0 }}
-      />
-    </T.PerspectiveCamera>
+    <!-- Controls -->
+    <T.PerspectiveCamera
+      makeDefault
+      position={[-5, 0, 12]}
+      lookAt={[3, 0, 0]}
+      bind:ref={camera}
+      fov={24}
+    />
 
-    <T.DirectionalLight castShadow position={[-3, 10, 10]} />
-    <T.DirectionalLight castShadow position={[3, 10, 10]} intensity={0.5} />
-    <T.AmbientLight intensity={0.2} />
+    <!-- Lights -->
+    <T.DirectionalLight
+      castShadow
+      position={[-0.5, -1, 20]}
+      intensity={10}
+      bind:ref={mainLight}
+    />
 
-    <T.Mesh position={[3, 0.5, 0]} castShadow>
-      <T.BoxGeometry />
-      <T.MeshStandardMaterial color="#333333" />
-    </T.Mesh>
-    <!-- Cube -->
-    <T.Group scale={$scale}>
-      <T.Mesh position={[-3, 0.5, 0]} castShadow let:ref bind:ref={cube}>
-        <InteractiveObject
-          object={ref}
-          interactive
-          on:pointerenter={() => ($scale = 1.5)}
-          on:pointerleave={() => ($scale = 1)}
-        />
+    <T.AmbientLight intensity={0.8} />
 
-        <T.BoxGeometry />
-        <T.MeshStandardMaterial color="#333333" />
-      </T.Mesh>
-    </T.Group>
-
-    <T.Mesh position={[4, 0.5, 0]} castShadow>
+    <!-- Scene -->
+    <!-- Box -->
+    <T.Mesh position={[0, 0.5, 0]} castShadow let:ref bind:ref={cube}>
       <T.BoxGeometry />
       <T.MeshStandardMaterial color="#333333" />
     </T.Mesh>
@@ -88,13 +102,17 @@ Welcome ${$xPos} `}
       visible={true}
       position={{ y: 3, x: 0, z: 0 }}
     />
+    <!-- Crystal -->
 
-    <!-- Floor -->
-    <!--     
-    <T.Mesh receiveShadow rotation.x={degToRad(-90)}>
-      <T.CircleGeometry args={[4, 72]} />
-      <T.MeshStandardMaterial color="white" />
-    </T.Mesh> -->
+    <GLTF
+      url="/models/gemstone/scene.gltf"
+      castShadow
+      receiveShadow
+      scale={0.05}
+      position={{ x: -5, y: 1 }}
+    />
+
+    <!-- Helpers -->
     <Grid infiniteGrid={true} />
   </Canvas>
 </div>
