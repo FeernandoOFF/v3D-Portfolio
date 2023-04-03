@@ -17,6 +17,9 @@
   import { GLTF, Grid, Text } from "@threlte/extras";
   import { degToRad } from "three/src/math/MathUtils";
 
+  let isSM: boolean;
+  let isMD: boolean;
+  let isLG: boolean;
   // 3D Bindings
 
   const xPos = spring(1);
@@ -26,6 +29,12 @@
   let target: Position = { x: 0 };
   let autoRotate = true;
 
+  function responsiveValues(mobile: any, tablet?: any, desktop?: any) {
+    if (isLG) return desktop || tablet || mobile;
+    if (isMD) return tablet || mobile;
+    if (isSM) return mobile;
+    return desktop;
+  }
   $: {
     if (cube) {
       // Scene Timeline
@@ -50,8 +59,8 @@
           duration: 0.5,
         })
         .to(camera.position, {
-          x: 0,
-          z: 20,
+          x: responsiveValues(4, -0.2),
+          z: responsiveValues(40, 30),
         })
         .to(camera.lookAt, {
           x: 0,
@@ -62,18 +71,25 @@
   }
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
+    isSM = window.innerWidth < 768;
+    isMD = window.innerWidth > 767 && window.innerWidth < 1024;
+    isLG = window.innerWidth > 1023;
   });
 </script>
 
-<div id="scene">
+<div id="scene" class="max-w-5xl">
   <Canvas>
     <!-- Controls -->
     <T.PerspectiveCamera
       makeDefault
-      position={[-5, 0, 12]}
+      position={[
+        responsiveValues(-5, -7, -7.5),
+        0,
+        responsiveValues(30, 20, 13),
+      ]}
       lookAt={[3, 0, 0]}
       bind:ref={camera}
-      fov={24}
+      fov={responsiveValues(30, 24)}
     />
 
     <!-- Lights -->

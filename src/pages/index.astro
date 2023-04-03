@@ -7,7 +7,8 @@ import ServicesScreen from "../components/ServicesScreen.svelte";
 ---
 
 <Layout>
-  <section class="hero min-h-[80vh]">
+  <section
+    class="hero min-h-[80vh] absolute top-0 left-0 place-items-start lg:place-items-center">
     <div
       class="hero-content flex-col lg:flex-row w-full justify-between max-w-6xl">
       <div class="w-full">
@@ -17,7 +18,7 @@ import ServicesScreen from "../components/ServicesScreen.svelte";
           style="-webkit-text-stroke: 1px; -webkit-text-fill-color: transparent;">
           21th Century Creator
         </h2>
-        <p class="font-sans mb-8">
+        <p class="font-sans mb-8 max-w-lg">
           Lorem ipsum dolor sit amet consectetur. Quam purus dolor placerat in
           sed. Dignissim mi eu tristique vitae libero iaculis cursus elementum.
           Ullamcorper semper congue.
@@ -27,11 +28,11 @@ import ServicesScreen from "../components/ServicesScreen.svelte";
         </CopyMail>
       </div>
       <figure class="w-2/5">
-        <img
+        <!-- <img
           src="/assets/gem.png"
           alt="Purple background gem"
           class="w-full max-w-sm ml-auto"
-        />
+        /> -->
       </figure>
     </div>
   </section>
