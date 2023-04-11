@@ -6,9 +6,9 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Layout from "../../components/Layout.astro";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
+const posts = (
+  await getCollection("blog", (post) => post.id.startsWith(astroI18n.langCode))
+).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
 
 <Layout>
