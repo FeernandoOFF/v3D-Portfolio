@@ -15,28 +15,22 @@ import ServicesScreen from "../components/ServicesScreen.svelte";
     <div
       class="hero-content flex-col lg:flex-row w-full justify-between max-w-6xl z-20">
       <div class="w-full">
-        <h2 class="font-serif text-xl md:text-6xl">I'm an ideas developer</h2>
+        <h2 class="font-serif text-xl md:text-6xl">
+          {t("home.hero.title")}
+        </h2>
         <h2
           class="font-serif text-xl md:text-4xl mt-2 mb-8"
           style="-webkit-text-stroke: 1px; -webkit-text-fill-color: transparent;">
-          21th Century Creator {t("hello")}
+          {t("home.hero.subtitle")}
         </h2>
         <p class="font-sans mb-8 max-w-lg">
-          Lorem ipsum dolor sit amet consectetur. Quam purus dolor placerat in
-          sed. Dignissim mi eu tristique vitae libero iaculis cursus elementum.
-          Ullamcorper semper congue.
+          {t("home.hero.description")}
         </p>
         <CopyMail client:visible>
           <Icon name="mdi:email-multiple-outline" />
         </CopyMail>
       </div>
-      <figure class="w-2/5">
-        <!-- <img
-          src="/assets/gem.png"
-          alt="Purple background gem"
-          class="w-full max-w-sm ml-auto"
-        /> -->
-      </figure>
+      <figure class="w-2/5"></figure>
     </div>
   </section>
   <section class="21-century-creator min-h-screen grid place-items-center">

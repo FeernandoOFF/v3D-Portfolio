@@ -1,3 +1,10 @@
 {
-  "hello": "Hola en espanool"
+  "hello": "Hola en espanool",
+  "home": {
+    "hero": {
+      "title": "Soy un desarrollador de ideas",
+      "subtitle": "Creador del siglo 21",
+      "description": " Lorem ipsum dolor sit amet consectetur. Quam purus dolor placerat in sed. Dignissim mi eu tristique vitae libero iaculis cursus elementum. Ullamcorper semper congue. SPANISH"
+    }
+  }
 }
