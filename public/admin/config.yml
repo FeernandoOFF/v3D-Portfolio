@@ -8,7 +8,7 @@ public_folder: "/uploads"
 i18n:
   structure: multiple_folders
   locales: [en, es]
-default_locale: en
+  default_locale: en
 
 collections:
   - name: "blog"
