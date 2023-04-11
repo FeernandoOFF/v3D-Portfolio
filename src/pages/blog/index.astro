@@ -1,4 +1,7 @@
 ---
+import { astroI18n, t } from "astro-i18n";
+astroI18n.init(Astro);
+
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Layout from "../../components/Layout.astro";
@@ -9,6 +12,7 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <Layout>
+  <h1>Hey! you're in {astroI18n.langCode}</h1>
   <section>
     <ul>
       {

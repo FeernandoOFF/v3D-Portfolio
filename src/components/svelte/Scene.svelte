@@ -77,7 +77,7 @@
   });
 </script>
 
-<div id="scene" class="max-w-5xl">
+<div id="scene" class="max-w-5xl -z-10">
   <Canvas>
     <!-- Controls -->
     <T.PerspectiveCamera

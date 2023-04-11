@@ -1,0 +1,9 @@
+---
+import Page from "../../snippets/[...slug].astro"
+
+export { getStaticPaths } from "../../snippets/[...slug].astro"
+
+const { props } = Astro
+---
+
+<Page {...props} />
