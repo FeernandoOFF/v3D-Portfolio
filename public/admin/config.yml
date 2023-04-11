@@ -45,7 +45,7 @@ collections:
           widget: "number",
           i18n: duplicate,
         }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
   - name: "snippets"
     label: "Snippets"
     folder: "src/content/snippets"

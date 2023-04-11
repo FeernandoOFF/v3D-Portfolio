@@ -1,4 +1,6 @@
 ---
+import { l } from "astro-i18n";
+
 import { Spa } from "astro-spa";
 import { AstroSeo } from "@astrolib/seo";
 import Header from "./Header.astro";
@@ -37,8 +39,12 @@ import SearchBar from "./SearchBar.svelte";
       <div class="mt-20 md:mt-28 relative">
         <slot />
       </div>
-
-      <SearchBar client:visible />
     </main>
+    <SearchBar client:visible>
+      <div>
+        <a href={l("/", undefined, "en")}> Switch to english</a>
+        <a href={l("/", undefined, "es")}> Switch to spanish</a>
+      </div>
+    </SearchBar>
   </body>
 </html>
