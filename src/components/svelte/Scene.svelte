@@ -7,15 +7,8 @@
   // GSAP
   import { gsap } from "gsap";
   // Threejs
-  import {
-    Canvas,
-    InteractiveObject,
-    OrbitControls,
-    type Position,
-    T,
-  } from "@threlte/core";
+  import { Canvas, type Position, T } from "@threlte/core";
   import { GLTF, Grid, Text } from "@threlte/extras";
-  import { degToRad } from "three/src/math/MathUtils";
 
   let isSM: boolean;
   let isMD: boolean;
@@ -35,6 +28,7 @@
     if (isSM) return mobile;
     return desktop;
   }
+
   $: {
     if (cube) {
       // Scene Timeline
@@ -77,16 +71,12 @@
   });
 </script>
 
-<div id="scene" class="max-w-5xl -z-10">
+<div id="scene" class="w-screen -z-10">
   <Canvas>
     <!-- Controls -->
     <T.PerspectiveCamera
       makeDefault
-      position={[
-        responsiveValues(-5, -7, -7.5),
-        0,
-        responsiveValues(30, 20, 13),
-      ]}
+      position={[responsiveValues(-5, -7, -7), 0, responsiveValues(30, 20, 13)]}
       lookAt={[3, 0, 0]}
       bind:ref={camera}
       fov={responsiveValues(30, 24)}

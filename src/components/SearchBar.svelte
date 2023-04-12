@@ -17,11 +17,20 @@
       callback: handleK,
     },
   }}
+  use:shortcut={{
+    trigger: {
+      key: "Escape",
+      callback: () => (open = false),
+    },
+  }}
 />
 
-<div class="bg-orange-200 h-10 w-10 fixed bottom-0 right-0" on:click={handleK}>
-  bottom
-</div>
+<button
+  class="bg-neutral-400 rounded-full h-10 w-10 fixed bottom-10 right-10 focus:outline-2 focus:outline-red-300"
+  on:click={handleK}
+>
+  i
+</button>
 
 {#if open}
   <div
@@ -29,7 +38,13 @@
     class="h-screen w-screen fixed top-0 grid place-items-center z-50"
     style="backdrop-filter: blur(16px);    background-color: rgba(57, 57, 57, 0.537); "
   >
-    <div class="p-4 bg-base-300 rounded-md flex flex-col">
+    <div class="p-4 bg-base-300 rounded-md flex flex-col max-w-md w-full">
+      <input
+        type="text"
+        placeholder="Search..."
+        autofocus
+        class="bg-transparent px-4 py-2 rounded-md border-2 border-gray-400 focus:outline-secondary"
+      />
       <slot />
     </div>
   </div>
