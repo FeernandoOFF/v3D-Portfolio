@@ -2,7 +2,6 @@
 import { astroI18n, t } from "astro-i18n";
 astroI18n.init(Astro);
 
-import { Icon } from "astro-icon";
 import CopyMail from "../components/CopyMail.svelte";
 import Layout from "../components/Layout.astro";
 import Scene from "../components/svelte/Scene.svelte";
@@ -27,14 +26,14 @@ import ServicesScreen from "../components/ServicesScreen.svelte";
           {t("home.hero.description")}
         </p>
         <CopyMail client:visible>
-          <Icon name="mdi:email-multiple-outline" />
+          <p>Mail icon</p>
         </CopyMail>
       </div>
       <figure class="w-2/5"></figure>
     </div>
   </section>
   <section class="21-century-creator min-h-screen grid place-items-center">
-    <Scene client:visible />
+    <Scene />
   </section>
   <section class="services min-h-screen">
     <ServicesScreen />

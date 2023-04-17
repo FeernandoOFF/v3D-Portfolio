@@ -1,5 +1,5 @@
 ---
-import { l } from "astro-i18n";
+import { l, astroI18n } from "astro-i18n";
 
 import { Spa } from "astro-spa";
 import { AstroSeo } from "@astrolib/seo";
@@ -10,7 +10,7 @@ import SearchBar from "./SearchBar.svelte";
 
 <!DOCTYPE html>
 <!-- TODO TRANSLATE -->
-<html lang="en">
+<html lang={astroI18n.langCode}>
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
