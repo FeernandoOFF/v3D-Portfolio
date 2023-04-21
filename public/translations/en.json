@@ -1,10 +1,9 @@
 {
-  "hello": "Hola en espanool",
+  "hello": "Hello English",
   "home": {
     "hero": {
-      "title": "I'm an Ideas developer",
-      "subtitle": "21th Century Creator",
-      "description": "Lorem ipsum dolor sit amet consectetur. Quam purus dolor placerat in sed. Dignissim mi eu tristique vitae libero iaculis cursus elementum. Ullamcorper semper congue. ENGLISH"
+      "title": "Developer of Ideas",
+      "subtitle": "Continiuslly creating stuff with feedback from across many places"
     }
   }
 }

@@ -1,15 +1,15 @@
 ---
 import { l, astroI18n } from "astro-i18n";
-
 import { Spa } from "astro-spa";
 import { AstroSeo } from "@astrolib/seo";
+
+// Components
 import Header from "./Header.astro";
 import Transition from "./Transition.svelte";
 import SearchBar from "./SearchBar.svelte";
+// Code
 ---
 
-<!DOCTYPE html>
-<!-- TODO TRANSLATE -->
 <html lang={astroI18n.langCode}>
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,9 +19,7 @@ import SearchBar from "./SearchBar.svelte";
       title="Simple Usage Example"
       description="A short description goes here."
     />
-
     <!-- Fonts -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,16 +27,15 @@ import SearchBar from "./SearchBar.svelte";
       rel="stylesheet"
     />
   </head>
-  <body>
-    <Transition client:load />
-
-    <main class="container mx-auto">
+  <body data-barba="wrapper">
+    <!-- <Spa defaultAnimation={false} progressBar={false} /> -->
+    <main
+      class="container mx-auto"
+      data-barba="container"
+      data-barba-namespace="home"
+    >
       <Header />
-      <Spa defaultAnimation={false} />
-
-      <div class="mt-20 md:mt-28 relative">
-        <slot />
-      </div>
+      <div class="mt-20 md:mt-28 relative"><slot /></div>
     </main>
     <SearchBar client:visible>
       <div>
@@ -46,5 +43,27 @@ import SearchBar from "./SearchBar.svelte";
         <a href={l("/", undefined, "es")}> Switch to spanish</a>
       </div>
     </SearchBar>
+    <script>
+      import barba from "@barba/core";
+      import gsap from "gsap";
+      barba.init({
+        transitions: [
+          {
+            name: "home",
+            leave(data) {
+              console.log(`Data ${data}`);
+              gsap.to(data.current.container, {
+                opacity: 0,
+              });
+            },
+            enter(data) {
+              gsap.from(data.next.container, {
+                opacity: 0,
+              });
+            },
+          },
+        ],
+      });
+    </script>
   </body>
 </html>

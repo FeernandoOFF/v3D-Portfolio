@@ -1,44 +1,13 @@
 ---
 import { astroI18n, t } from "astro-i18n";
-astroI18n.init(Astro);
-
-import CopyMail from "../components/CopyMail.svelte";
 import Layout from "../components/Layout.astro";
-import Scene from "../components/svelte/Scene.svelte";
-import ServicesScreen from "../components/ServicesScreen.svelte";
+astroI18n.init(Astro);
 ---
 
 <Layout>
-  <section
-    class="hero min-h-[80vh] absolute top-0 left-0 place-items-start lg:place-items-center">
-    <div
-      class="hero-content flex-col lg:flex-row w-full justify-between max-w-6xl z-20">
-      <div class="w-full">
-        <h2 class="font-serif text-xl md:text-6xl">
-          {t("home.hero.title")}
-        </h2>
-        <h2
-          class="font-serif text-xl md:text-4xl mt-2 mb-8"
-          style="-webkit-text-stroke: 1px; -webkit-text-fill-color: transparent;">
-          {t("home.hero.subtitle")}
-        </h2>
-        <p class="font-sans mb-8 max-w-lg">
-          {t("home.hero.description")}
-        </p>
-        <CopyMail client:visible>
-          <p>Mail icon</p>
-        </CopyMail>
-      </div>
-      <figure class="w-2/5"></figure>
-    </div>
-  </section>
-  <section class="21-century-creator min-h-screen grid place-items-center">
-    <Scene />
-  </section>
-  <section class="services min-h-screen">
-    <ServicesScreen />
-  </section>
-  <section class="services min-h-screen">
-    <h2>Testimonials</h2>
-  </section>
+  <div class="absolute top-0"></div>
+  <div class="m-auto">
+    <h1>{t("home.hero.title")}</h1>
+    <p>{t("home.hero.subtitle")}</p>
+  </div>
 </Layout>
