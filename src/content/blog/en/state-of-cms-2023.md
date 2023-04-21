@@ -1,5 +1,5 @@
 ---
-title: "State of CMS "
+title: The current state of Content Management Systems
 description: "From self-hosted Git-Based CMS to cloud platforms here we'll
   discuss about the most relevant solutions that we have available to solve a
   simple problem: \"the data source for our app\"."
