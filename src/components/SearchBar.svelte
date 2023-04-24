@@ -25,14 +25,14 @@
   }}
 />
 
-<div
-  class="bg-transparent border border-neutral-400 rounded-full rounded-full h-14 w-14 fixed bottom-10 right-10 grid place-items-center focus:border-red-300"
+<button
+  class="bg-transparent border border-neutral-400 rounded-full rounded-full h-14 w-14 fixed bottom-10 right-10 grid place-items-center focus:bg-#4f4f4f"
+  on:click={handleK}
 >
-  <button
+  <i
     class="bg-neutral-400 focus:outline-2 focus:outline-red-300 i-carbon-mac-command"
-    on:click={handleK}
   />
-</div>
+</button>
 
 {#if open}
   <div
@@ -41,7 +41,10 @@
     style="backdrop-filter: blur(16px);    background-color: rgba(57, 57, 57, 0.537); "
     on:click={handleK}
   >
-    <div class="p-4 bg-base-300 rounded-md flex flex-col max-w-md w-full">
+    <div
+      on:click|stopPropagation
+      class="p-4 bg-base-300 rounded-md flex flex-col max-w-md w-full"
+    >
       <input
         type="text"
         placeholder="Search..."

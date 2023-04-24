@@ -13,9 +13,16 @@ astroI18n.init(Astro);
         <img  alt="3D gem" src="/assets/gem.png"  class="w-full" />
       </figure>
       <div class="text-center mx-auto max-w-xl" >
-        <h1 class="text-3xl md:text-6xl text-white" >{t("home.hero.title")}</h1>
-        <p class="text-base md:text-xl mt-6 max-w-md">{t("home.hero.subtitle")}</p>
+        <h1 class="font-sans text-3xl md:text-6xl text-white" >{t("home.hero.title")}</h1>
+        <p class="text-base md:text-xl mt-6 max-w-md mx-auto">{t("home.hero.subtitle")}</p>
       </div>
+
+      <p class="bg-neutral-400 focus:outline-2 focus:outline-red-300 i-carbon-arrow-down" />
     </div>
+  </section>
+  <section class="min-h-screen">
+    <h2>
+      {t("home.services.title")}
+    </h2>
   </section>
 </Layout>

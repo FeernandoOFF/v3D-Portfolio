@@ -19,10 +19,6 @@ module.exports = {
     ],
   },
   theme: {
-    fontFamily: {
-      serif: ["Bree Serif", "ui-sans-serif"],
-      sans: ["Montserrat", "ui-sans-serif"],
-    },
     extend: {},
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],

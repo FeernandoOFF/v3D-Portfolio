@@ -1,10 +1,24 @@
 import { defineConfig } from "unocss";
-import { presetUno, presetIcons } from "unocss";
+import {
+  presetTypography,
+  presetWebFonts,
+  presetUno,
+  presetIcons,
+} from "unocss";
 import { presetDaisy } from "unocss-preset-daisy";
 
 export default defineConfig({
   presets: [
     presetUno(),
+    presetTypography(),
+    presetWebFonts({
+      provider: "google",
+      fonts: {
+        sans: "Montserrat",
+        custom: "Montserrat",
+        mono: ["Fira Code", "Fira Mono:400,700"],
+      },
+    }),
     presetDaisy({
       themes: [
         {
