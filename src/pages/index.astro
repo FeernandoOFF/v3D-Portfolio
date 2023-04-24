@@ -5,9 +5,17 @@ astroI18n.init(Astro);
 ---
 
 <Layout>
-  <div class="absolute top-0"></div>
-  <div class="m-auto">
-    <h1>{t("home.hero.title")}</h1>
-    <p>{t("home.hero.subtitle")}</p>
-  </div>
+  <!-- <div class="absolute top-0 min-w-[600px] h-[200px] bg-primary opacity-30 "></div> -->
+  <img src="/assets/home_purple_shape.svg" class="absolute -top-20 md:-top-28 " aria-hidden="true" />
+  <section class="grid place-items-center min-h-[70vh]" >
+    <div class="m-auto">
+      <figure class="mx-auto md:max-w-240px max-w-200px">
+        <img  alt="3D gem" src="/assets/gem.png"  class="w-full" />
+      </figure>
+      <div class="text-center mx-auto max-w-xl" >
+        <h1 class="text-3xl md:text-6xl text-white" >{t("home.hero.title")}</h1>
+        <p class="text-base md:text-xl mt-6 max-w-md">{t("home.hero.subtitle")}</p>
+      </div>
+    </div>
+  </section>
 </Layout>

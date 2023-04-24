@@ -5,22 +5,14 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: "#075985",
-
-          secondary: "#F9A826",
-
+          primary: "#342B6C",
+          secondary: "#57B584",
           accent: "#57B584",
-
           neutral: "#ffffff",
-
-          "base-100": "#162127",
-
+          "base-100": "#121826",
           info: "#303152",
-
           success: "#36D399",
-
           warning: "#FBBD23",
-
           error: "#F87272",
         },
       },
@@ -29,7 +21,7 @@ module.exports = {
   theme: {
     fontFamily: {
       serif: ["Bree Serif", "ui-sans-serif"],
-      sans: ["quicksand", "ui-sans-serif"],
+      sans: ["Montserrat", "ui-sans-serif"],
     },
     extend: {},
   },
