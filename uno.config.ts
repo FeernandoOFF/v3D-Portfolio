@@ -54,4 +54,10 @@ export default defineConfig({
       },
     }),
   ],
+  shortcuts: {
+    "heading-1": "font-sans text-3xl md:text-6xl",
+    "heading-2": "font-sans text-xl md:text-4xl",
+    "text-gradient":
+      "text-transparent bg-clip-text bg-gradient-to-r from-white to-green-#7146AD",
+  },
 });
