@@ -3,8 +3,8 @@ type SupportedLangCode = "es"
 type LangCode = DefaultLangCode | SupportedLangCode
 type RouteUri = | "/about" | "/blog/[...slug]" | "/blog" | "/snippets/[...slug]" | "/snippets" | "/404" | "/" | "/portfolio" 
 type RouteParams = {"/about": undefined; "/blog/[...slug]": { "...slug": string; }; "/blog": undefined; "/snippets/[...slug]": { "...slug": string; }; "/snippets": undefined; "/404": undefined; "/": undefined; "/portfolio": undefined; }
-type TranslationPath = "hello" | "home.hero.title" | "home.hero.subtitle" | "home.services.title" | "home.services.subtitle"
-type TranslationOptions = { "hello": {} | undefined; "home.hero.title": {} | undefined; "home.hero.subtitle": {} | undefined; "home.services.title": {} | undefined; "home.services.subtitle": {} | undefined; }
+type TranslationPath = "hello" | "home.title" | "home.hero.title" | "home.hero.subtitle" | "home.services.title" | "home.services.subtitle" | "home.services.services.title" | "home.services.services.description" | "home.interested" | "home.learn-more" | "home.contact" | "snippets.title" | "snippets.heading" | "snippets.heading-2"
+type TranslationOptions = { "hello": {} | undefined; "home.title": {} | undefined; "home.hero.title": {} | undefined; "home.hero.subtitle": {} | undefined; "home.services.title": {} | undefined; "home.services.subtitle": {} | undefined; "home.services.services.title": {} | undefined; "home.services.services.description": {} | undefined; "home.interested": {} | undefined; "home.learn-more": {} | undefined; "home.contact": {} | undefined; "snippets.title": {} | undefined; "snippets.heading": {} | undefined; "snippets.heading-2": {} | undefined; }
 
 declare module "astro-i18n" {
 	export * from "astro-i18n/"

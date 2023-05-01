@@ -1,13 +1,26 @@
 {
   "hello": "Hola en espanool",
   "home": {
+    "title": "Inicio - Feernandooff",
     "hero": {
       "title": "Desarrollador de Ideas",
       "subtitle": "Continiuslly creating stuff with feedback from across many places"
     },
     "services": {
       "title": "Servicios",
-      "subtitle": "Soluciones 360"
-    }
+      "subtitle": "Soluciones 360",
+      "services": {
+        "title": "Frontend",
+        "description": "Desarrollo de sitios web"
+      }
+    },
+    "interested": "Interesado en con quien vas a trabajar?",
+    "learn-more": "Ver mas acerca de mi",
+    "contact": "Pongamonos en contacto!"
+  },
+  "snippets": {
+    "title": "Snippets - Feernandooff",
+    "heading": "Construyendo el futuro",
+    "heading-2": "Una linea a la vez"
   }
 }

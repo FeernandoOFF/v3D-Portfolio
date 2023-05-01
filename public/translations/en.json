@@ -1,13 +1,26 @@
 {
   "hello": "Hello English",
   "home": {
+    "title": "Home - Feernandooff",
     "hero": {
       "title": "Developer of Ideas",
       "subtitle": "Continiuslly creating stuff with feedback from across many places"
     },
     "services": {
       "title": "Services",
-      "subtitle": "360 Solutions"
-    }
+      "subtitle": "360 Solutions",
+      "services": {
+        "title": "Frontend",
+        "description": "Website development"
+      }
+    },
+    "interested": "Interested in who are you going to work with?",
+    "learn-more": "Learn more about me",
+    "contact": "Let&apos;s Get In Touch"
+  },
+  "snippets": {
+    "title": "Snippets - Feernandooff",
+    "heading": "Building the future",
+    "heading-2": "One line at the time"
   }
 }

@@ -26,7 +26,8 @@
 />
 
 <button
-  class="bg-transparent border border-neutral-400 rounded-full rounded-full h-14 w-14 fixed bottom-10 right-10 grid place-items-center focus:bg-#4f4f4f"
+  class="focus:bg-transparent border border-neutral-400 rounded-full p-2 md:p-4 fixed md:bottom-10 md:right-10 bottom-5 right-5 grid place-items-center bg-#4f4f4f"
+  aria-label="Show options"
   on:click={handleK}
 >
   <i
@@ -37,11 +38,13 @@
 {#if open}
   <div
     transition:fade
+    aria-hidden="true"
     class="h-screen w-screen fixed top-0 grid place-items-center z-50"
     style="backdrop-filter: blur(16px);    background-color: rgba(57, 57, 57, 0.537); "
     on:click={handleK}
   >
     <div
+      role="dialog"
       on:click|stopPropagation
       class="p-4 bg-base-300 rounded-md flex flex-col max-w-md w-full"
     >

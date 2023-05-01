@@ -4,54 +4,93 @@ import Layout from "../components/Layout.astro";
 astroI18n.init(Astro);
 ---
 
-<Layout>
-  <div class="absolute -top-36 w-100vh left-[50%] right-[50%] -translate-x-[50%]  h-[200px]  bg-#342B6C blur-150px "></div>
-  <!-- <img src="/assets/home_purple_shape.svg" class="absolute  -top-20 md:-top-28 " aria-hidden="true" /> -->
-  
+<Layout title={t("home.title")} >
+  <!-- figures -->
+  <div
+    class="absolute -top-36 w-screen left-[50%] right-[50%] -translate-x-[50%] h-[200px] bg-#342B6C blur-150px max-w-1000px"
+  >
+  </div>
 
-  <section class="grid place-items-center min-h-screen" >
-    <div class="m-auto">
+  <section class="grid place-items-center min-h-screen relative">
+    <div
+      class="absolute bottom-10 right-0 bg-secondary h-100px w-100px blur-100px"
+    >
+    </div>
+    <div class="m-auto pb-14">
       <figure class="mx-auto md:max-w-240px max-w-200px">
-        <img  alt="3D gem" src="/assets/gem.png"  class="w-full" />
+        <img alt="3D gem" src="/assets/gem.png" class="w-full" />
       </figure>
-      <div class="text-center mx-auto max-w-xl" >
-        <h1 class="heading-1" >{t("home.hero.title")}</h1>
-        <p class="text-base md:text-xl mt-6 max-w-md mx-auto">{t("home.hero.subtitle")}</p>
+
+      <div class="text-center mx-auto max-w-3xl">
+        <h1 class="heading-1 font-semibold text-white">
+          {t("home.hero.title")}
+        </h1>
+        <p class="text-base md:text-xl mt-10 max-w-md mx-auto">
+          {t("home.hero.subtitle")}
+        </p>
       </div>
 
-      <p class="bg-neutral-400 focus:outline-2 focus:outline-red-300 i-carbon-arrow-down" />
+      <button
+        aria-label="Scroll down"
+        class="bg-transparent border border-neutral-400 rounded-full p-2 md:p-3 mx-auto mt-10 grid place-items-center hover:bg-#4f4f4f"
+      >
+        <p class="bg-neutral-400 focus:outline-2 i-carbon-arrow-down"></p>
+      </button>
     </div>
   </section>
-  <section class="min-h-screen">
-  <div class="mx-auto text-center">
-    <h2 class="heading-1">
-      {t("home.services.title")}
-    </h2>
-    <h3  class="heading-2 text-gradient">{t("home.services.subtitle")} </h3>
 
+  <!-- Centre  -->
+  <section class="min-h-screen">
+    <div class="mx-auto text-center">
+      <h2 class="heading-1 font-semibold">
+        {t("home.services.title")}
+      </h2>
+      <h3 class="heading-2 text-gradient">{t("home.services.subtitle")}</h3>
     </div>
-      
+
     <div class="flex justify-around max-w-6xl mx-auto mt-40">
       <!-- Card -->
       <div class="w-30% max-w-200px">
-        <div class="min-h-200px w-full rounded-tl-2xl rounded-br-2xl bg-indigo-300" >
+        <div
+          class="min-h-100px max-h-300px w-full rounded-tl-40px rounded-br-40px bg-indigo-300"
+          style="aspect-ratio: 1/1.20;"
+        >
         </div>
-        <p>Frontend </p>
-        <p class="bg-neutral-400 focus:outline-2 focus:outline-red-300 i-carbon-arrow-right" />
-      </div>
-      <div class="w-30% max-w-200px">
-        <div class="min-h-200px w-full rounded-tl-2xl rounded-br-2xl bg-indigo-300" >
+        <div class="flex items-center gap-1 pt-2">
+          <p>Frontend</p>
+          <p
+            class="bg-neutral-400 focus:outline-2 focus:outline-red-300 i-carbon-arrow-right"
+          >
+          </p>
         </div>
-        <p>Frontend </p>
-        <p class="bg-neutral-400 focus:outline-2 focus:outline-red-300 i-carbon-arrow-right" />
       </div>
-      <div class="w-30% max-w-200px">
-        <div class="min-h-200px w-full rounded-tl-2xl rounded-br-2xl bg-indigo-300" >
-        </div>
-        <p>Frontend </p>
-        <p class="bg-neutral-400 focus:outline-2 focus:outline-red-300 i-carbon-arrow-right" />
-      </div>
-
     </div>
+  </section>
+  <section class="mx-auto text-center">
+    <h4 class="heading-2 font-semibold text-white max-w-xl mx-auto">
+      {t("home.interested")}
+    </h4>
+    <p class="mt-20 text-lg">{t("home.learn-more")}</p>
+
+    <button
+      aria-label="Scroll down"
+      class="bg-transparent border border-neutral-400 rounded-full p-2 md:p-3 mx-auto mt-10 grid place-items-center hover:bg-#4f4f4f"
+    >
+      <p class="bg-neutral-400 focus:outline-2 i-carbon-arrow-right"></p>
+    </button>
+  </section>
+  <section
+    class="bg-glass rounded-t-lg text-center grid place-items-center mt-28 h-70vh relative"
+  >
+    <div
+      class="absolute bottom-10 left-0 bg-secondary h-100px w-100px blur-100px -z-10"
+    >
+    </div>
+
+    <div
+      class="absolute top-0 right-0 -z-10 bg-primary h-100px w-100px blur-100px"
+    >
+    </div>
+    <p class="heading-1 text-white font-semibold">{t("home.contact")}</p>
   </section>
 </Layout>

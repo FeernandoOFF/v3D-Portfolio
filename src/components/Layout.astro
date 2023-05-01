@@ -7,7 +7,10 @@ import { AstroSeo } from "@astrolib/seo";
 import Header from "./Header.astro";
 import Transition from "./Transition.svelte";
 import SearchBar from "./SearchBar.svelte";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 // Code
+
+const { title, description } = Astro.props;
 ---
 
 <html lang={astroI18n.langCode}>
@@ -16,11 +19,12 @@ import SearchBar from "./SearchBar.svelte";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- SEO -->
     <AstroSeo
-      title="Simple Usage Example"
-      description="A short description goes here."
+      title={title || SITE_TITLE}
+      description={description || SITE_DESCRIPTION}
     />
+    <!-- Fonts -->
   </head>
-  <body data-barba="wrapper">
+  <body data-barba="wrapper" class="overflow-x-hidden">
     <!-- <Spa defaultAnimation={false} progressBar={false} /> -->
     <main
       class="container mx-auto"
@@ -31,7 +35,7 @@ import SearchBar from "./SearchBar.svelte";
       <div class="mt-20 md:mt-28 relative"><slot /></div>
     </main>
     <SearchBar client:visible>
-      <div>
+      <div class="flex-col flex">
         <a href={l("/", undefined, "en")}> Switch to english</a>
         <a href={l("/", undefined, "es")}> Switch to spanish</a>
       </div>

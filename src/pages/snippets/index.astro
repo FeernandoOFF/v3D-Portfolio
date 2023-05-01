@@ -5,7 +5,7 @@ import Layout from "../../components/Layout.astro";
 const snippets = await getCollection("snippets");
 ---
 
-<Layout>
+<Layout title="Snippets">
   <h1>Snippets</h1>
   {
     snippets.map((snippet) => (
