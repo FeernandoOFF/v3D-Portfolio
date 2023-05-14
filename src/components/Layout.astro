@@ -1,8 +1,8 @@
 ---
-import { l, astroI18n } from "astro-i18n";
-import { Spa } from "astro-spa";
-import { AstroSeo } from "@astrolib/seo";
+import "../styles/global.css";
 
+import { l, astroI18n } from "astro-i18n";
+import { AstroSeo } from "@astrolib/seo";
 // Components
 import Header from "./Header.astro";
 import Transition from "./Transition.svelte";
@@ -24,8 +24,7 @@ const { title, description } = Astro.props;
     />
   </head>
 
-  <body data-barba="wrapper" class="overflow-x-hidden">
-    <!-- <Spa defaultAnimation={false} progressBar={false} /> -->
+  <body class="overflow-x-hidden">
     <main
       class="container mx-auto"
       data-barba="container"
@@ -41,26 +40,7 @@ const { title, description } = Astro.props;
       </div>
     </SearchBar>
     <script>
-      import barba from "@barba/core";
-      import gsap from "gsap";
-      barba.init({
-        transitions: [
-          {
-            name: "home",
-            leave(data) {
-              console.log(`Data ${data}`);
-              gsap.to(data.current.container, {
-                opacity: 0,
-              });
-            },
-            enter(data) {
-              gsap.from(data.next.container, {
-                opacity: 0,
-              });
-            },
-          },
-        ],
-      });
+      import "../utils/router.js";
     </script>
   </body>
 </html>

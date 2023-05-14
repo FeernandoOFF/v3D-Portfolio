@@ -19,6 +19,9 @@ dependencies:
   '@barba/core':
     specifier: ^2.9.7
     version: 2.9.7
+  '@hotwired/turbo':
+    specifier: ^7.3.0
+    version: 7.3.0
   '@iconify-json/carbon':
     specifier: ^1.1.16
     version: 1.1.16
@@ -997,6 +1000,11 @@ packages:
     resolution: {integrity: sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==}
     dependencies:
       '@hapi/hoek': 9.3.0
+    dev: false
+
+  /@hotwired/turbo@7.3.0:
+    resolution: {integrity: sha512-Dcu+NaSvHLT7EjrDrkEmH4qET2ZJZ5IcCWmNXxNQTBwlnE5tBZfN6WxZ842n5cHV52DH/AKNirbPBtcEXDLW4g==}
+    engines: {node: '>= 14'}
     dev: false
 
   /@humanwhocodes/config-array@0.11.8:

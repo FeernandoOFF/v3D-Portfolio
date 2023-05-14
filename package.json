@@ -19,6 +19,7 @@
     "@astrojs/svelte": "^2.1.0",
     "@astrolib/seo": "^0.3.0",
     "@barba/core": "^2.9.7",
+    "@hotwired/turbo": "^7.3.0",
     "@iconify-json/carbon": "^1.1.16",
     "@svelte-put/copy": "^2.0.0",
     "@unocss/reset": "^0.51.12",
