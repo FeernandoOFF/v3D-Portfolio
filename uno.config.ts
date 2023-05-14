@@ -2,14 +2,14 @@ import { defineConfig } from "unocss";
 import {
   presetTypography,
   presetWebFonts,
-  presetUno,
+  presetWind,
   presetIcons,
 } from "unocss";
 import { presetDaisy } from "unocss-preset-daisy";
 
 export default defineConfig({
   presets: [
-    presetUno(),
+    presetWind(),
     presetTypography(),
     presetWebFonts({
       provider: "google",
@@ -19,10 +19,17 @@ export default defineConfig({
         mono: ["Fira Code", "Fira Mono:400,700"],
       },
     }),
+    presetIcons({
+      collections: {
+        carbon: () =>
+          import("@iconify-json/carbon/icons.json").then((i) => i.default),
+      },
+    }),
     presetDaisy({
       themes: [
         {
           light: {
+            ...import("daisyui/src/colors/themes")["[data-theme=light]"],
             primary: "#7146AD",
             secondary: "#57B584",
             "base-100": "#F4F4F4",
@@ -32,8 +39,10 @@ export default defineConfig({
             success: "#36D399",
             warning: "#FBBD23",
             error: "#F87272",
+            text: "#000000",
           },
           dark: {
+            ...import("daisyui/src/colors/themes")["[data-theme=dark]"],
             primary: "#7146AD",
             secondary: "#57B584",
             "base-100": "#121826",
@@ -43,15 +52,10 @@ export default defineConfig({
             success: "#36D399",
             warning: "#FBBD23",
             error: "#F87272",
+            text: "#FFFFFF",
           },
         },
       ],
-    }),
-    presetIcons({
-      collections: {
-        carbon: () =>
-          import("@iconify-json/carbon/icons.json").then((i) => i.default),
-      },
     }),
   ],
   shortcuts: {

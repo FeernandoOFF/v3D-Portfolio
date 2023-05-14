@@ -7,7 +7,7 @@ astroI18n.init(Astro);
 <Layout title={t("home.title")}>
   <!-- figures -->
   <div
-    class="absolute -top-36 w-screen left-[50%] right-[50%] -translate-x-[50%] h-[200px] bg-#342B6C blur-150px max-w-1000px"
+    class="absolute -top-36 w-screen left-[50%] right-[50%] -translate-x-[50%] h-[200px] bg-#342B6C blur-150px max-w-1000px -z-10"
   >
   </div>
 
@@ -22,7 +22,7 @@ astroI18n.init(Astro);
       </figure>
 
       <div class="text-center mx-auto max-w-3xl">
-        <h1 class="heading-1 font-semibold text-black dark:text-white">
+        <h1 class="heading-1 font-semibold text-text">
           {t("home.hero.title")}
         </h1>
         <p class="text-base md:text-xl mt-10 max-w-md mx-auto">
@@ -68,7 +68,7 @@ astroI18n.init(Astro);
   </section>
   <!-- About -->
   <section class="mx-auto text-center">
-    <h4 class="heading-2 font-semibold text-white max-w-xl mx-auto">
+    <h4 class="heading-2 font-semibold text-text max-w-xl mx-auto">
       {t("home.interested")}
     </h4>
     <p class="mt-20 text-lg">{t("home.learn-more")}</p>
@@ -93,10 +93,7 @@ astroI18n.init(Astro);
       class="absolute top-0 right-0 -z-10 bg-primary h-100px w-100px blur-100px"
     >
     </div>
-    <p
-      class="heading-1 text-white font-semibold"
-      set:html={t("home.contact")}
-    />
+    <p class="heading-1 text-text font-semibold" set:html={t("home.contact")} />
     <select data-choose-theme>
       <option value="">Default</option>
       <option value="dark">Dark</option>
