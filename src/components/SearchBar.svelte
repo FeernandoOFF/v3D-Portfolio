@@ -1,11 +1,10 @@
 <script lang="ts">
   import { shortcut, type ShortcutEventDetails } from "@svelte-put/shortcut";
-  import { fade } from "svelte/transition";
 
-  let open = false;
+  let dialog: HTMLDialogElement;
 
   function handleK() {
-    open = !open;
+    dialog.showModal();
   }
 </script>
 
@@ -20,7 +19,7 @@
   use:shortcut={{
     trigger: {
       key: "Escape",
-      callback: () => (open = false),
+      callback: () => dialog.close(),
     },
   }}
 />
@@ -35,25 +34,24 @@
   />
 </button>
 
-{#if open}
-  <div
-    transition:fade
-    aria-hidden="true"
-    class="h-screen w-screen fixed top-0 grid place-items-center z-50"
-    style="backdrop-filter: blur(16px);    background-color: rgba(57, 57, 57, 0.537); "
-    on:click={handleK}
-  >
-    <div
-      role="dialog"
-      on:click|stopPropagation
-      class="p-4 bg-base-300 rounded-md flex flex-col max-w-md w-full"
-    >
-      <input
-        type="text"
-        placeholder="Search..."
-        class="bg-transparent px-4 py-2 rounded-md border-2 border-gray-400 focus:outline-secondary"
-      />
-      <slot />
-    </div>
-  </div>
-{/if}
+<dialog
+  bind:this={dialog}
+  class="p-4 bg-base-300 rounded-md flex flex-col max-w-md w-full"
+>
+  <input
+    type="text"
+    placeholder="Search..."
+    class="bg-transparent px-4 py-2 rounded-md border-2 border-gray-400 focus:outline-gray"
+  />
+  <slot />
+</dialog>
+
+<style>
+  dialog::backdrop {
+    background: rgba(160, 161, 161, 0.25);
+    border-color: rgba(203, 202, 202, 0.25);
+    border-width: 1px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+</style>

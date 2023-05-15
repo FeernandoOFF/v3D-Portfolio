@@ -1,5 +1,5 @@
 ---
-import { astroI18n, t } from "astro-i18n";
+import { astroI18n, l, t } from "astro-i18n";
 import Layout from "../components/Layout.astro";
 astroI18n.init(Astro);
 ---
@@ -7,14 +7,12 @@ astroI18n.init(Astro);
 <Layout title={t("home.title")}>
   <!-- figures -->
   <div
-    class="absolute -top-36 w-screen left-[50%] right-[50%] -translate-x-[50%] h-[200px] bg-#342B6C blur-150px max-w-1000px -z-10"
-  >
+    class="absolute -top-36 w-screen left-[50%] right-[50%] -translate-x-[50%] h-[200px] bg-#342B6C blur-150px max-w-1000px -z-10">
   </div>
 
   <section class="grid place-items-center min-h-screen relative">
     <div
-      class="absolute bottom-10 right-0 bg-secondary h-100px w-100px blur-100px"
-    >
+      class="absolute bottom-10 right-0 bg-secondary h-100px w-100px blur-100px">
     </div>
     <div class="m-auto pb-14">
       <figure class="mx-auto md:max-w-240px max-w-200px">
@@ -32,8 +30,7 @@ astroI18n.init(Astro);
 
       <button
         aria-label="Scroll down"
-        class="bg-transparent border border-neutral-400 rounded-full p-2 md:p-3 mx-auto mt-10 grid place-items-center hover:bg-#4f4f4f"
-      >
+        class="bg-transparent border border-neutral-400 rounded-full p-2 md:p-3 mx-auto mt-10 grid place-items-center hover:bg-#4f4f4f">
         <p class="bg-neutral-400 focus:outline-2 i-carbon-arrow-down"></p>
       </button>
     </div>
@@ -48,22 +45,27 @@ astroI18n.init(Astro);
       <h3 class="heading-2 text-gradient">{t("home.services.subtitle")}</h3>
     </div>
 
-    <div class="flex justify-around max-w-6xl mx-auto mt-40">
+    <div class="flex justify-around max-w-6xl mx-auto mt-40 items-center">
       <!-- Card -->
-      <div class="w-30% max-w-200px">
-        <div
-          class="min-h-100px max-h-300px w-full rounded-tl-40px rounded-br-40px bg-indigo-300"
-          style="aspect-ratio: 1/1.20;"
-        >
-        </div>
-        <div class="flex items-center gap-1 pt-2">
-          <p>Frontend</p>
-          <p
-            class="bg-neutral-400 focus:outline-2 focus:outline-red-300 i-carbon-arrow-right"
-          >
-          </p>
-        </div>
-      </div>
+      {
+        [0, 1, 2].map((index) => (
+          <div
+            class={` max-w-200px ${
+              index == 0 || index == 2 ? "w-25%" : "w-30%"
+            }`}>
+            <div
+              class="min-h-100px max-h-300px w-full rounded-tl-4 rounded-br-4   md:rounded-tl-40px md:rounded-br-40px bg-indigo-300"
+              style="aspect-ratio: 1/1.20;"
+            />
+            <a href={l("/portfolio")} class="flex items-center gap-1 pt-2">
+              <p class="text-text text-xs md:text-lg">
+                {t("home.services.service", { i: index })}
+              </p>
+              <p class="bg-neutral-400 focus:outline-2 focus:outline-red-300 i-carbon-arrow-right" />
+            </a>
+          </div>
+        ))
+      }
     </div>
   </section>
   <!-- About -->
@@ -73,31 +75,23 @@ astroI18n.init(Astro);
     </h4>
     <p class="mt-20 text-lg">{t("home.learn-more")}</p>
 
-    <button
-      aria-label="Scroll down"
-      class="bg-transparent border border-neutral-400 rounded-full p-2 md:p-3 mx-auto mt-10 grid place-items-center hover:bg-#4f4f4f"
-    >
+    <a
+      href={l("/about")}
+      aria-label="About me"
+      class="inline-block bg-transparent border border-neutral-400 rounded-full p-2 md:p-3 mx-auto mt-10 grid place-items-center hover:bg-#4f4f4f">
       <p class="bg-neutral-400 focus:outline-2 i-carbon-arrow-right"></p>
-    </button>
+    </a>
   </section>
   <!-- Contact  -->
   <section
-    class="bg-glass rounded-t-lg text-center grid place-items-center mt-28 h-70vh relative overflow-hidden"
-  >
+    class="bg-glass rounded-t-lg text-center grid place-items-center mt-28 h-70vh relative overflow-hidden">
     <div
-      class="absolute bottom-10 left-0 bg-secondary h-100px w-100px blur-100px -z-10"
-    >
+      class="absolute bottom-10 left-0 bg-secondary h-100px w-100px blur-100px -z-10">
     </div>
 
     <div
-      class="absolute top-0 right-0 -z-10 bg-primary h-100px w-100px blur-100px"
-    >
+      class="absolute top-0 right-0 -z-10 bg-primary h-100px w-100px blur-100px">
     </div>
     <p class="heading-1 text-text font-semibold" set:html={t("home.contact")} />
-    <select data-choose-theme>
-      <option value="">Default</option>
-      <option value="dark">Dark</option>
-      <option value="light">Light</option>
-    </select>
   </section>
 </Layout>

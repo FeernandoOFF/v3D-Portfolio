@@ -7,6 +7,7 @@ import { AstroSeo } from "@astrolib/seo";
 import Header from "./Header.astro";
 import Transition from "./Transition.svelte";
 import SearchBar from "./SearchBar.svelte";
+
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 // Code
 
@@ -25,11 +26,7 @@ const { title, description } = Astro.props;
   </head>
 
   <body class="overflow-x-hidden">
-    <main
-      class="container mx-auto"
-      data-barba="container"
-      data-barba-namespace="home"
-    >
+    <main class="container mx-auto">
       <Header />
       <div class="mt-20 md:mt-28 relative"><slot /></div>
     </main>

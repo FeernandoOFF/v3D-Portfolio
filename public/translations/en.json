@@ -9,10 +9,9 @@
     "services": {
       "title": "Services",
       "subtitle": "360 Solutions",
-      "services": {
-        "title": "Frontend",
-        "description": "Website development"
-      }
+      "service{i:0}": "App Development",
+      "service{i:1}": "WebDevelopment",
+      "service{i:2}": "IoT Development"
     },
     "interested": "Interested in who are you going to work with?",
     "learn-more": "Learn more about me",

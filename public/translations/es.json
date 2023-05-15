@@ -9,10 +9,9 @@
     "services": {
       "title": "Servicios",
       "subtitle": "Soluciones 360",
-      "services": {
-        "title": "Frontend",
-        "description": "Desarrollo de sitios web"
-      }
+      "service{i:0}": "Desarrollo de Apps",
+      "service{i:1}": "Desarrollo de Sitios Web",
+      "service{i:2}": "Desarrollo de IoT"
     },
     "interested": "Interesado en con quien vas a trabajar?",
     "learn-more": "Ver mas acerca de mi",
