@@ -1,5 +1,6 @@
 <script lang="ts">
   import { shortcut, type ShortcutEventDetails } from "@svelte-put/shortcut";
+  export let actions: string[];
 
   let dialog: HTMLDialogElement;
 
@@ -25,13 +26,11 @@
 />
 
 <button
-  class="focus:bg-transparent border border-neutral-400 rounded-full p-2 md:p-4 fixed md:bottom-10 md:right-10 bottom-5 right-5 grid place-items-center bg-#4f4f4f"
+  class="focus:bg-transparent border border-neutral-400 rounded-full p-3 fixed md:bottom-10 md:right-10 bottom-5 right-5 grid place-items-center bg-#4f4f4f"
   aria-label="Show options"
   on:click={handleK}
 >
-  <i
-    class="bg-neutral-400 focus:outline-2 focus:outline-red-300 i-carbon-mac-command"
-  />
+  <span class="icon-[carbon--mac-command]" />
 </button>
 
 <dialog
@@ -43,7 +42,12 @@
     placeholder="Search..."
     class="bg-transparent px-4 py-2 rounded-md border-2 border-gray-400 focus:outline-gray"
   />
-  <slot />
+  <p>Navigation</p>
+  {#each actions as link}
+    <a href={link}>
+      {link}
+    </a>
+  {/each}
 </dialog>
 
 <style>

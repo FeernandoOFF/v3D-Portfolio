@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-
 import { l, astroI18n } from "astro-i18n";
 import { AstroSeo } from "@astrolib/seo";
 // Components
@@ -37,12 +36,10 @@ const { title, description } = Astro.props;
       <Header />
       <div class="mt-20 md:mt-28 relative"><slot /></div>
     </main>
-    <SearchBar client:visible>
-      <div class="flex-col flex">
-        <a href={l("/", undefined, "en")}> Switch to english</a>
-        <a href={l("/", undefined, "es")}> Switch to spanish</a>
-      </div>
-    </SearchBar>
+    <SearchBar
+      actions={[l("/", undefined, "en"), l("/", undefined, "es")]}
+      client:visible
+    />
     <script>
       import "../utils/router.js";
     </script>
