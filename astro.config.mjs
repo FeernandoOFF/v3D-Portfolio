@@ -4,21 +4,15 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 
-import UnoCSS from "unocss/astro";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://feernandooff.com",
-  integrations: [
-    i18n(),
-    mdx(),
-    sitemap(),
-    svelte(),
-    UnoCSS({ injectReset: true }),
-  ],
+  integrations: [i18n(), mdx(), sitemap(), svelte(), tailwind()],
   vite: {
     ssr: {
-      noExternal: ["three", "troika-three-text"],
-    },
-  },
+      noExternal: ["three", "troika-three-text"]
+    }
+  }
 });
