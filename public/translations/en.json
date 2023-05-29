@@ -3,7 +3,8 @@
   "home": {
     "title": "Home - Feernandooff",
     "hero": {
-      "title": "Developer of Ideas",
+      "title": "Developer of ",
+      "title-highlight": "Ideas",
       "subtitle": "Continiuslly creating stuff with feedback from across many places"
     },
     "services": {

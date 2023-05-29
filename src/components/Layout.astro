@@ -18,6 +18,13 @@ const { title, description } = Astro.props;
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- SEO -->
     <AstroSeo
       title={title || SITE_TITLE}
@@ -25,7 +32,7 @@ const { title, description } = Astro.props;
     />
   </head>
 
-  <body class="overflow-x-hidden bg-base-100">
+  <body class="overflow-x-hidden">
     <main class="container mx-auto">
       <Header />
       <div class="mt-20 md:mt-28 relative"><slot /></div>
@@ -39,5 +46,14 @@ const { title, description } = Astro.props;
     <script>
       import "../utils/router.js";
     </script>
+    <style is:global>
+      .bg-glass {
+        background: rgba(160, 161, 161, 0.25);
+        border-color: rgba(203, 202, 202, 0.25);
+        border-width: 1px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+    </style>
   </body>
 </html>

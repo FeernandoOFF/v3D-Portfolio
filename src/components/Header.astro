@@ -5,9 +5,9 @@ import HeaderLink from "./HeaderLink.astro";
 
 <div>
   <header
-    class="hidden md:block w-full max-w-2xl mx-auto bg-glass rounded-[26px] py-3 px-20 fixed top-7 left-[50%] right-[50%] translate-x-[-50%] z-50"
-  >
-    <nav class="text-sm flex justify-between mx-auto items-center">
+    class="hidden md:block w-full max-w-2xl mx-auto bg-glass rounded-[26px] py-3 px-20 fixed top-7 left-[50%] right-[50%] translate-x-[-50%] z-50">
+    <nav
+      class="text-sm flex justify-between mx-auto items-center text-black dark:text-white">
       <HeaderLink href={"/"}>Home</HeaderLink>
       <HeaderLink href={"/about"}>About</HeaderLink>
       <HeaderLink href={"/blog"}>Blog</HeaderLink>
@@ -46,13 +46,3 @@ import HeaderLink from "./HeaderLink.astro";
     </label>
   </div>
 </div>
-
-<style is:global>
-  .bg-glass {
-    background: rgba(160, 161, 161, 0.25);
-    border-color: rgba(203, 202, 202, 0.25);
-    border-width: 1px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-</style>
