@@ -7,6 +7,10 @@
   function handleK() {
     dialog.showModal();
   }
+  function closeDialog() {
+    console.log("closing");
+    dialog.close();
+  }
 </script>
 
 <svelte:window
@@ -17,12 +21,6 @@
       callback: handleK,
     },
   }}
-  use:shortcut={{
-    trigger: {
-      key: "Escape",
-      callback: () => dialog.close(),
-    },
-  }}
 />
 
 <button
@@ -31,24 +29,26 @@
   on:click={handleK}
 >
   <span class="icon-[carbon--mac-command]" />
-</button>
 
-<dialog
-  bind:this={dialog}
-  class="p-4 bg-base-300 rounded-md flex flex-col max-w-md w-full"
->
-  <input
-    type="text"
-    placeholder="Search..."
-    class="bg-transparent px-4 py-2 rounded-md border-2 border-gray-400 focus:outline-gray"
-  />
-  <p>Navigation</p>
-  {#each actions as link}
-    <a href={link}>
-      {link}
-    </a>
-  {/each}
-</dialog>
+  <dialog bind:this={dialog} class="w-full max-w-md bg-base-300 rounded-md p-0">
+    <button class="float-right">x</button>
+    <div class="flex flex-col w-full">
+      <input
+        type="text"
+        placeholder="Search..."
+        class="bg-transparent border-b-2 px-4 py-2 border-gray-400 focus:outline-gray"
+      />
+      <div class="section">
+        <p>Navigation</p>
+        {#each actions as link}
+          <a href={link}>
+            {link}
+          </a>
+        {/each}
+      </div>
+    </div>
+  </dialog>
+</button>
 
 <style>
   dialog::backdrop {
