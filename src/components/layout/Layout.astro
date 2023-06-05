@@ -1,5 +1,5 @@
 ---
-import "../styles/global.css";
+import "@styles/global.css";
 import { l, astroI18n } from "astro-i18n";
 import { AstroSeo } from "@astrolib/seo";
 // Components
@@ -7,7 +7,7 @@ import Header from "./Header.astro";
 import Transition from "./Transition.svelte";
 import SearchBar from "./SearchBar.svelte";
 
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 // Code
 
 const { title, description } = Astro.props;
@@ -41,7 +41,7 @@ const { title, description } = Astro.props;
       client:visible
     />
     <script>
-      import "../utils/router.js";
+      import "../../utils/router.js";
     </script>
     <style is:global>
       .bg-glass {

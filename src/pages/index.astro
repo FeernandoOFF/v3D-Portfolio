@@ -1,11 +1,13 @@
 ---
 import { Icon } from "astro-icon";
 import { astroI18n, l, t } from "astro-i18n";
-import Layout from "../components/Layout.astro";
+import Layout from "../components/layout/Layout.astro";
 import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
 import LottieAnimation from "../components/svelte/LottieAnimation.svelte";
 import Scene from "../components/svelte/Scene.svelte";
 import MainScene from "../components/three/MainScene.svelte";
+import Canvas from "@components/three/Canvas.svelte";
+import SceneDeveloper from "@components/home/sceneDeveloper.svelte";
 astroI18n.init(Astro);
 ---
 
@@ -63,8 +65,8 @@ astroI18n.init(Astro);
     </div>
     <div
       class="bg-gray-500 rounded-2xl w-full min-h-[30dvh] grid place-items-center">
-      <LottieAnimation client:load />
-      <MainScene client:load />
+      <!-- <LottieAnimation client:load /> -->
+      <SceneDeveloper client:visible />
     </div>
   </section>
 

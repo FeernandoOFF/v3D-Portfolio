@@ -3,8 +3,8 @@ import { astroI18n, t } from "astro-i18n";
 astroI18n.init(Astro);
 
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
-import Layout from "../../components/Layout.astro";
+import FormattedDate from "../../components/layout/FormattedDate.astro";
+import Layout from "../../components/layout/Layout.astro";
 
 const posts = (
   await getCollection("blog", (post) => post.id.startsWith(astroI18n.langCode))
