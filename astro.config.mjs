@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [i18n(), mdx(), sitemap(), svelte(), tailwind()],
   vite: {
     ssr: {
-      noExternal: ["three", "troika-three-text"]
+      noExternal: ["three", "troika-three-text", "@threlte"],
     }
   }
 });
