@@ -2,12 +2,8 @@
 import { Icon } from "astro-icon";
 import { astroI18n, l, t } from "astro-i18n";
 import Layout from "../components/layout/Layout.astro";
-import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
-import LottieAnimation from "../components/svelte/LottieAnimation.svelte";
-import Scene from "../components/svelte/Scene.svelte";
-import MainScene from "../components/three/MainScene.svelte";
-import Canvas from "@components/three/Canvas.svelte";
 import SceneDeveloper from "@components/home/sceneDeveloper.svelte";
+import ExpandAnimation from "@components/home/ExpandAnimation.svelte";
 astroI18n.init(Astro);
 ---
 
@@ -64,8 +60,10 @@ astroI18n.init(Astro);
       </p>
     </div>
     <div
-      class="bg-gray-500 rounded-2xl w-full min-h-[30dvh] grid place-items-center">
-      <!-- <LottieAnimation client:load /> -->
+      class="bg-gray-500 relative cursor-pointer rounded-2xl w-full min-h-[30dvh] grid place-items-center">
+      <div class="absolute top-2 right-2">
+        <ExpandAnimation client:load />
+      </div>
       <SceneDeveloper client:visible />
     </div>
   </section>
@@ -109,17 +107,16 @@ astroI18n.init(Astro);
   </section>
   <!-- About -->
   <section class="mx-auto text-center">
-    <h4 class="heading-2 font-semibold text-text max-w-xl mx-auto">
+    <h4 class="font-semibold text-black dark:text-white text-3xl text-center">
       {t("home.interested")}
     </h4>
-    <p class="mt-20 text-lg">{t("home.learn-more")}</p>
-
     <a
       href={l("/about")}
       aria-label="About me"
-      class="inline-block bg-transparent border border-neutral-400 rounded-full p-2 md:p-3 mx-auto mt-10 grid place-items-center hover:bg-#4f4f4f">
-      <p class="bg-neutral-400 focus:outline-2 i-carbon-arrow-right"></p>
+      class="h-10 w-10 bg-transparent border border-neutral-400 rounded-full p-2 md:p-3 mx-auto mt-16 grid place-items-center hover:bg-#4f4f4f">
+      <Icon name="ph:arrow-down" />
     </a>
+    <p class="mt-10 text-lg">{t("home.learn-more")}</p>
   </section>
   <!-- Contact  -->
   <section

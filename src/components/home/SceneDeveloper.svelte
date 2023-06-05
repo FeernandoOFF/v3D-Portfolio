@@ -1,15 +1,49 @@
 <script>
-  import { Canvas, InteractiveObject, OrbitControls, T } from "@threlte/core";
+  import {
+    Mesh as MeshComponent,
+    useLoader,
+    Canvas,
+    OrbitControls,
+    T,
+  } from "@threlte/core";
   import { spring } from "svelte/motion";
   import { degToRad } from "three/src/math/MathUtils";
+  import { BufferGeometryLoader, MeshBasicMaterial } from "three";
+  import { onMount } from "svelte";
 
+  const loader = useLoader(
+    BufferGeometryLoader,
+    () => new BufferGeometryLoader()
+  );
+
+  let Face;
   const scale = spring(1);
+  onMount(() => {
+    loader.load(
+      "https://threejs.org/examples/models/json/WaltHeadLo_buffergeometry.json",
+      (obj) => {
+        // obj.deleteAttribute("normal");
+        // obj.deleteAttribute("uv");
+        Face = obj;
+      }
+    );
+  });
 </script>
 
 <div>
   <Canvas>
-    <T.PerspectiveCamera makeDefault position={[10, 10, 10]} fov={24}>
+    {#if Face}
+      <T.Group scale={0.05}>
+        <MeshComponent
+          geometry={Face}
+          position={[-10, -10, -10]}
+          material={new MeshBasicMaterial({ wireframe: true, color: "#fff" })}
+        />
+      </T.Group>
+    {/if}
+    <T.PerspectiveCamera makeDefault position={[0, -10, 15]} fov={24}>
       <OrbitControls
+        autoRotate={true}
         maxPolarAngle={degToRad(80)}
         enableZoom={false}
         target={{ y: 0.5 }}
@@ -20,26 +54,10 @@
     <T.DirectionalLight position={[-3, 10, -10]} intensity={0.2} />
     <T.AmbientLight intensity={0.2} />
 
-    <!-- Cube -->
-    <T.Group scale={$scale}>
-      <T.Mesh position.y={0.5} castShadow let:ref>
-        <!-- Add interaction -->
-        <InteractiveObject
-          object={ref}
-          interactive
-          on:pointerenter={() => ($scale = 2)}
-          on:pointerleave={() => ($scale = 1)}
-        />
-
-        <T.BoxGeometry />
-        <T.MeshStandardMaterial color="#333333" />
-      </T.Mesh>
-    </T.Group>
-
     <!-- Floor -->
-    <T.Mesh receiveShadow rotation.x={degToRad(-90)}>
+    <T.Mesh receiveShadow rotation.x={degToRad(-90)} position={[0, -2, 0]}>
       <T.CircleGeometry args={[3, 72]} />
-      <T.MeshStandardMaterial color="white" />
+      <T.MeshStandardMaterial color="#413601" />
     </T.Mesh>
   </Canvas>
 </div>
