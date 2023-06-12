@@ -12,12 +12,20 @@ const posts = (
 ---
 
 <Layout>
-  <h1>Hey! you're in {astroI18n.langCode}</h1>
+  <h1 class="heading-1 text-white">Joining the dots</h1>
+  <p class="max-w-[500px] py-4">
+    Continiuslly creating stuff with feedback from across many places many
+    places many places many places many places many places
+  </p>
   <section>
-    <ul>
+    <ul class="grid grid-cols-3 gap-6 mt-8">
       {
         posts.map((post) => (
-          <li>
+          <li
+            class:list={{
+              "post-large": post.data.isFeatured,
+              post: !post.data.isFeatured,
+            }}>
             <FormattedDate date={post.data.pubDate} />
             <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
           </li>
@@ -26,3 +34,12 @@ const posts = (
     </ul>
   </section>
 </Layout>
+
+<style>
+  .post {
+    @apply bg-red-400 bg-glass  rounded-sm p-4;
+  }
+  .post-large {
+    @apply post col-span-2 bg-red-400;
+  }
+</style>

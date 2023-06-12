@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const { addDynamicIconSelectors } = require('@iconify/tailwind');
+const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -42,5 +43,21 @@ module.exports = {
 			}
 		]
 	},
-	plugins: [require("daisyui"), require('@tailwindcss/typography'), addDynamicIconSelectors(),],
+	plugins: [require("daisyui"), require('@tailwindcss/typography'), addDynamicIconSelectors(),
+	/** @type {import('tailwindcss/types/config').PluginCreator} */
+	plugin(({ addUtilities }) => {
+		addUtilities({
+			'.heading-1': {
+				'@apply font-semibold text-2xl lg:text-6xl': {},
+			},
+			'.bg-glass': {
+				background: 'rgba(160, 161, 161, 0.25)',
+				'border-color': 'rgba(203, 202, 202, 0.25)',
+				'border-width': '1px',
+				'backdrop-filter': 'blur(10px)',
+				'-webkit-backdrop-filter': 'blur(10px)',
+			}
+		})
+	})
+	],
 }
